@@ -1,7 +1,7 @@
 # Hi there,I'm Namisan👋
 
--🌱I'm currently exploring new things in technolory
--😄 I love to play bandminton,read a books and listen to music
+- 🌱I'm currently exploring new things in technolory
+- 😄 I love to play badminton,read a books and listen to music
 
 #### 📱Contact with me
 [![Facebook](https://img.shields.io/badge/facebook-%231877F2.svg?&style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/namisan2304)
