@@ -1,6 +1,6 @@
 # Hi there, I'm Hung 👋
 
-Namisan is a passionate full-stack developer with a focus on building scalable web and mobile applications. Specializing in Ruby on Rails for robust backends and APIs, Flutter for cross-platform mobile development, and Swift for native iOS experiences, he thrives on optimizing workflows using tools like Neovim and Tmux. Always eager to explore emerging technologies—from Riverpod state management to Claude AI integration—Namisan balances his tech curiosity with a love for badminton, diving into thought-provoking books, and unwinding to his favorite tunes.
+I'm passionate full-stack developer with a focus on building scalable web and mobile applications. Specializing in Ruby on Rails for robust backends and APIs, Flutter for cross-platform mobile development, and Swift for native iOS experiences, he thrives on optimizing workflows using tools like Neovim and Tmux. Always eager to explore emerging technologies—from Riverpod state management to Claude AI integration—Namisan balances his tech curiosity with a love for badminton, diving into thought-provoking books, and unwinding to his favorite tunes.
 
 - I'm currently exploring new things in technology
 - I love to play badminton, read books, and listen to music
