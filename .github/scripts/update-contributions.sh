@@ -31,7 +31,7 @@ fetch_contribution_sections() {
         | (.repository_url | sub(".*/repos/"; "")) as $repo
         | {
             status: (if .state == "open" then "Open" else "Merged" end),
-            line: "- [\($repo)#\(.number)](\(.html_url)): \(.title)"
+            line: "- **\($repo)** — [\(.title)](\(.html_url))"
           }
       ] as $contributions
       | [
