@@ -38,8 +38,10 @@ fetch_contribution_sections() {
           ["Merged", "Open"][] as $status
           | [$contributions[] | select(.status == $status) | .line]
           | select(length > 0)
-          | "##### \($status)\n\(join("\n"))"
+          | { status: $status, lines: join("\n") }
         ]
+      | to_entries
+      | map("##### \(.key + 1). \(.value.status)\n\(.value.lines)")
       | join("\n\n")
     '
 }
