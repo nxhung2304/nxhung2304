@@ -13,3 +13,12 @@ I'm a passionate full-stack developer with a focus on building scalable web and 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000 "JavaScript")
 ![Swift](https://img.shields.io/badge/Swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white "Swift")
 ![DevOps](https://img.shields.io/badge/DevOps-06569B?style=for-the-badge&logo=devops&logoColor=white "DevOps")
+
+#### 🌱 Open Source Contributions
+<!-- contributions:start -->
+##### 1. Merged
+- **kunkka19xx/look** — [[feature] Change Trash icon to empty when Trash is empty](https://github.com/kunkka19xx/look/pull/593)
+
+##### 2. Open
+- **theHamsta/nvim-dap-virtual-text** — [fix: read stackTrace response from the correct listener argument](https://github.com/theHamsta/nvim-dap-virtual-text/pull/99)
+<!-- contributions:end -->
