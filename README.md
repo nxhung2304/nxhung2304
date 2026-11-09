@@ -16,6 +16,9 @@ I'm a passionate full-stack developer with a focus on building scalable web and 
 
 #### Open Source Contributions
 <!-- contributions:start -->
-- [theHamsta/nvim-dap-virtual-text#99](https://github.com/theHamsta/nvim-dap-virtual-text/pull/99): fix: read stackTrace response from the correct listener argument (open)
-- [kunkka19xx/look#593](https://github.com/kunkka19xx/look/pull/593): [feature] Change Trash icon to empty when Trash is empty (merged)
+##### Merged
+- [kunkka19xx/look#593](https://github.com/kunkka19xx/look/pull/593): [feature] Change Trash icon to empty when Trash is empty
+
+##### Open
+- [theHamsta/nvim-dap-virtual-text#99](https://github.com/theHamsta/nvim-dap-virtual-text/pull/99): fix: read stackTrace response from the correct listener argument
 <!-- contributions:end -->

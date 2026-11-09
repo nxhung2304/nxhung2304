@@ -17,7 +17,7 @@ build_search_query() {
   echo "$query"
 }
 
-fetch_contribution_lines() {
+fetch_contribution_sections() {
   local search_query=$1
   gh api -X GET search/issues \
     -f q="$search_query" \
@@ -25,20 +25,31 @@ fetch_contribution_lines() {
     -f order=desc \
     -f per_page="$SEARCH_PAGE_SIZE" \
     --jq '
-      .items[]
-      | select(.state == "open" or .pull_request.merged_at != null)
-      | (.repository_url | sub(".*/repos/"; "")) as $repo
-      | (if .state == "open" then "open" else "merged" end) as $status
-      | "- [\($repo)#\(.number)](\(.html_url)): \(.title) (\($status))"
+      [
+        .items[]
+        | select(.state == "open" or .pull_request.merged_at != null)
+        | (.repository_url | sub(".*/repos/"; "")) as $repo
+        | {
+            status: (if .state == "open" then "Open" else "Merged" end),
+            line: "- [\($repo)#\(.number)](\(.html_url)): \(.title)"
+          }
+      ] as $contributions
+      | [
+          ["Merged", "Open"][] as $status
+          | [$contributions[] | select(.status == $status) | .line]
+          | select(length > 0)
+          | "##### \($status)\n\(join("\n"))"
+        ]
+      | join("\n\n")
     '
 }
 
 build_updated_readme() {
-  local contribution_lines=$1
-  CONTRIBUTION_LINES="$contribution_lines" awk \
+  local contribution_sections=$1
+  CONTRIBUTION_SECTIONS="$contribution_sections" awk \
     -v start="$START_MARKER" \
     -v end="$END_MARKER" '
-      $0 == start { print; if (ENVIRON["CONTRIBUTION_LINES"] != "") print ENVIRON["CONTRIBUTION_LINES"]; is_inside_block = 1; next }
+      $0 == start { print; if (ENVIRON["CONTRIBUTION_SECTIONS"] != "") print ENVIRON["CONTRIBUTION_SECTIONS"]; is_inside_block = 1; next }
       $0 == end { is_inside_block = 0 }
       !is_inside_block { print }
     ' "$README_PATH"
@@ -50,10 +61,10 @@ main() {
     exit 1
   fi
 
-  local search_query contribution_lines updated_readme
+  local search_query contribution_sections updated_readme
   search_query=$(build_search_query)
-  contribution_lines=$(fetch_contribution_lines "$search_query")
-  updated_readme=$(build_updated_readme "$contribution_lines")
+  contribution_sections=$(fetch_contribution_sections "$search_query")
+  updated_readme=$(build_updated_readme "$contribution_sections")
   printf '%s\n' "$updated_readme" > "$README_PATH"
 }
 
